@@ -15,16 +15,18 @@
         </v-col>
       </v-row> -->
       <div class="text-4xl">
-        <v-btn  color="white" ><span class="mdi mdi-message-text-fast-outline"></span></v-btn>
-        <v-btn  color="white" @click="logout"><span class="mdi mdi-account-circle"></span></v-btn>
+        <v-btn  color="white" ><span class="mdi mdi-message-text-fast-outline text-3xl"></span></v-btn>
+        <v-btn  color="white" @click="logout"><span class="mdi mdi-account-circle text-3xl"></span></v-btn>
       </div>
       </v-app-bar>
     <v-navigation-drawer v-model="draw">
       <v-divider></v-divider>
-      <v-list-item link to="/LayoutPage" title="Home"></v-list-item>
+      <v-list-item link to="/" title="Home"></v-list-item>
       <v-list-item link to="/about" title="About"></v-list-item>
     </v-navigation-drawer>
     <v-main>
+      <HomePage/>
+      
     </v-main>
 </template>
 <script>
