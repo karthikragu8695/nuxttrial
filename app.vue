@@ -2,7 +2,7 @@
   <v-app>
     <!-- <NuxtWelcome /> -->
       <AuthPage v-if="show" />
-      <NuxtPage v-else></NuxtPage >
+      <NuxtPage v-else></NuxtPage>
   </v-app>
 </template>
 
