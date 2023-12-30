@@ -1,6 +1,7 @@
 <template>
-    <v-container>
+    <v-container  >
         <v-form fast-fail @submit.prevent>
+          
         
         <v-card>
             <v-card-text>
@@ -106,14 +107,15 @@
                         :rules="RegisterpasswordRules" variant="outlined"></v-text-field>
                     </v-col>
                 </v-row>
+                
                     <v-card-actions>
-                        <v-btn  :loading="loading" type="submit" class="text-white rounded-3xl" block variant="outlined" color="orange">Register Free</v-btn>
+                        <v-btn  :loading="loading" type="submit" class="text-white rounded-3xl" block variant="outlined" color="orange" @click="addForm">Register Free</v-btn>
                     </v-card-actions>
             </v-card-text>
         </v-card>
         </v-form>
         
-        <!------------------dialogue------------------------>
+        <!------------------Form1 Dialoge------------------------>
         <v-dialog v-model="show">
                    
                        
@@ -191,15 +193,16 @@
                         </v-form>
                     </div>
                    
-        </v-dialog>
-        
-        
+        </v-dialog>  
     </v-container>
     
 </template>
 <script>
+import FormPage from './FormPage.vue'
 export default {
+  
     data: () => ({
+      Form2:false,
         show:false,
         login:false,
         firstName: '',
@@ -345,6 +348,6 @@ export default {
         },
       ],
         }),
-  }
+    }
 
 </script>

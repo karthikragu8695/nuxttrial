@@ -2,17 +2,22 @@
   <v-app>
     <!-- <NuxtWelcome /> -->
     
-      <AuthPage v-if="loggedIn" />
-      <NuxtPage v-else></NuxtPage>
+    <AuthPage v-if="!loggedIn" />
+    
+    <!-- <HomePage></HomePage>
+    <NuxtLayout>
+      
+        <NuxtPage />
+      </NuxtLayout> -->
   </v-app>
 </template>
 
 <script>
 export default{
   computed:{
-    // loggedIn(){
-    //   return this.$store.getters.isLoggedIn
-    // }
+    loggedIn(){
+      return false
+    }
   }
 }
 

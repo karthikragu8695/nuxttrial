@@ -1,6 +1,6 @@
 <template>
     <v-container>
-      <v-card>
+      <v-card >
     <v-tabs
       v-model="tab"
       bg-color="primary"
