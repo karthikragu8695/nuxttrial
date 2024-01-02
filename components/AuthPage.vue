@@ -12,20 +12,10 @@
                      <v-spacer></v-spacer>
                      <v-col >
                         <v-btn  v-if="!show" @click="show=true" size="large" class="text-orange px-3"  color="white">Login </v-btn>
-                       
                     </v-col>
                 </v-row>
                 
                 <v-row class="mt-10">
-                    <v-col cols="12" >
-                        <v-autocomplete
-                            label="Autocomplete"
-                            :items="['Myself', 'Son', 'Daughter', 'Brother', 'Sister', 'Relative','Friend']"
-                            variant="outlined"
-                            v-model="select"
-                            :rules="SelectRules"
-                            ></v-autocomplete>
-                    </v-col>
                     <v-col cols="12">
                         <v-text-field
                          label="Name"
@@ -68,6 +58,20 @@
                         variant="outlined"
                         ></v-select>
                     </v-col>
+                    <v-col cols="12">
+                        <v-select
+                            label="Marital Status"
+                            :items="['Never Married', 'Windower', 'Divorced', 'Awaiting Divorce']"
+                            variant="outlined">
+                        </v-select>
+                    </v-col>
+                    <v-col>
+                    <v-select
+                        label="Caste"
+                        :items="['Intercaste', 'Irani', 'Others', 'Parsi','Dont wish to specify']"
+                        variant="outlined">
+                    </v-select>
+                </v-col>
                     
                     <v-col cols="12" >
                         <v-autocomplete
@@ -81,12 +85,104 @@
                     </v-col>
                     <v-col cols="12" >
                         <v-autocomplete
-                            label="Mother Tongue"
-                            v-model="MotherTongue"
+                            label="Education"
+                            v-model="Education"
                             :rules="MotherTongueRules"
-                            :items="['Tamil', 'Hindi', 'Malayalam']"
+                            :items="['UG', 'PG', 'SSLC','HSLC','Diplomo',]"
                             variant="outlined"
                             ></v-autocomplete>
+                    </v-col>
+                    <v-col cols="12" >
+                        <v-autocomplete
+                            label="Profession"
+                            v-model="Profession"
+                            :rules="ProfessionRules"
+                            :items="['DOCTOR', 'IT', 'NON IT','BUSSINESS','CIVIL','GOVERMENT JOB','OTHERS']"
+                            variant="outlined"
+                            ></v-autocomplete>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Rashi"
+                        v-model="Rashi"
+                        :rules="RashiRules"
+                         variant="outlined"></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Nadchathiram"
+                        v-model="Nadchathiram"
+                        :rules="NadchathiramRules"
+                         variant="outlined"></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Thosam"
+                        v-model="Thosam"
+                        :rules="ThosamRules"
+                         variant="outlined"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" class="mt-5 ml-5">
+                      <v-row >
+                       <h2 class="text-h6">siblings</h2>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row  class=" mx-auto text-center">
+                        <v-text-field label="Brother"
+                        v-model="Brother"
+                        :rules="BrotherRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row class=" mx-auto text-center">
+                        <v-text-field label="Sister"
+                        v-model="Sister"
+                        :rules="sisterRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row  class=" mx-auto text-center">
+                        <v-text-field label="Father Name"
+                        v-model="FatherName"
+                        :rules="FatherNameRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row class=" mx-auto text-center">
+                        <v-text-field label="Occupation"
+                        v-model="FatherOccupation"
+                        :rules="FatherOccupationRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row  class=" mx-auto text-center">
+                        <v-text-field label="Mother Name"
+                        v-model="MotherName"
+                        :rules="MotherNameRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="6"  class="mt-5">
+                      <v-row class=" mx-auto text-center">
+                        <v-text-field label="Occupation"
+                        v-model="MotherOccupation"
+                        :rules="MotherOccupationRules"
+                         variant="outlined"></v-text-field>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Family God"
+                        v-model="FamilyGod"
+                        :rules="FamilyGodRules"
+                         variant="outlined"></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Annual income"
+                        v-model="Annualincome"
+                        :rules="AnnualincomeRules"
+                         variant="outlined"></v-text-field>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -106,6 +202,14 @@
                         v-model="Registerpassword"
                         :rules="RegisterpasswordRules" variant="outlined"></v-text-field>
                     </v-col>
+                    <v-col>
+                    <v-file-input  prepend-icon="mdi-camera"  variant="outlined" label="Photo Upload"></v-file-input>
+
+                    </v-col>
+                    <v-col>
+                    <v-file-input    variant="outlined" label="Horoscope Upload"></v-file-input>
+
+                    </v-col>
                 </v-row>
                 
                     <v-card-actions>
@@ -114,10 +218,8 @@
             </v-card-text>
         </v-card>
         </v-form>
-        
         <!------------------Form1 Dialoge------------------------>
         <v-dialog v-model="show">
-                   
                        
                         <div>
                             <v-form fast-fail @submit.prevent>
@@ -198,7 +300,6 @@
     
 </template>
 <script>
-import FormPage from './FormPage.vue'
 export default {
   
     data: () => ({
@@ -211,8 +312,8 @@ export default {
         selectMonth:null,
         selectYear:null,
         Religion:null,
-        Radio:null,
-        MotherTongue:null,
+        Profession:null,
+        // MotherTongue:null,
         SelectRules: [
         value => {
           if (value) return true
@@ -241,11 +342,11 @@ export default {
           return 'Year is not selected .'
         },
       ],
-      RadioRules: [
+      ProfessionRules: [
         value => {
           if (value) return true
 
-          return 'select genter .'
+          return 'please select Occupation.'
         },
       ],
       ReligionRules: [
@@ -255,13 +356,13 @@ export default {
           return 'Religion is not selected .'
         },
       ],
-      MotherTongueRules: [
-        value => {
-          if (value) return true
+      // MotherTongueRules: [
+      //   value => {
+      //     if (value) return true
 
-          return 'Mother Tongue is not selected .'
-        },
-      ],
+      //     return 'Mother Tongue is not selected .'
+      //   },
+      // ],
         firstNameRules: [
             value => {
             if (value?.length > 3) return true
@@ -345,6 +446,45 @@ export default {
           if (value?.length >= 10) return true
 
           return 'password must be less than 10 characters.'
+        },
+      ],
+      Rashi: '',
+        RashiRules: [
+        value => {
+          if (value) return true
+
+          return 'Rashi is required.'
+        },
+        value => {
+          if (value?.length >= 3) return true
+
+          return 'Rashi must be less than 3 characters.'
+        },
+      ],
+      Nadchathiram: '',
+      NadchathiramRules: [
+        value => {
+          if (value) return true
+
+          return 'Nadchathiram is required.'
+        },
+        value => {
+          if (value?.length >= 4) return true
+
+          return 'Nadchathiram must be less than 4 characters.'
+        },
+      ],
+      Thosam: '',
+      ThosamRules: [
+        value => {
+          if (value) return true
+
+          return 'Thosam is required.'
+        },
+        value => {
+          if (value?.length >= 4) return true
+
+          return 'Thosam must be less than 4 characters.'
         },
       ],
         }),

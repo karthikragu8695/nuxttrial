@@ -1,5 +1,8 @@
 <template>
-    <v-container>
+  <v-container>
+    
+  </v-container>
+    <!-- <v-container>
       <v-card >
     <v-tabs
       v-model="tab"
@@ -124,8 +127,8 @@
         </v-window-item>
       </v-window>
     </v-card-text>
-  </v-card>
-    </v-container>
+  </v-card> -->
+    <!-- </v-container> -->
 </template>
 <script>
   export default {
