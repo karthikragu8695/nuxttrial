@@ -77,9 +77,7 @@ export default {
     draw:false
   }),
   methods:{
-    logout(){
-      firebase.auth().signOut()
-    },
+    
 
   }
 }

@@ -1,8 +1,6 @@
 <template>
     <v-container  >
         <v-form fast-fail @submit.prevent>
-          
-        
         <v-card>
             <v-card-text>
                 <v-row  class="mt-2" >
