@@ -23,7 +23,7 @@
                     </v-col>
                     <v-col cols="12">
                         <v-radio-group inline   >
-                            <v-radio label="Male" v-model="Radio" :rules="RadioRules" class="border border-black pr-5"  value="one"></v-radio>
+                            <v-radio label="Male"  class="border border-black pr-5"  value="one"></v-radio>
                             <v-radio label="Female" class="border border-black pr-5 ml-5"  value="two"></v-radio>
                             </v-radio-group>
                     </v-col>
@@ -84,8 +84,6 @@
                     <v-col cols="12" >
                         <v-autocomplete
                             label="Education"
-                            v-model="Education"
-                            :rules="MotherTongueRules"
                             :items="['UG', 'PG', 'SSLC','HSLC','Diplomo',]"
                             variant="outlined"
                             ></v-autocomplete>
@@ -125,61 +123,45 @@
                     <v-col cols="6"  class="mt-5">
                       <v-row  class=" mx-auto text-center">
                         <v-text-field label="Brother"
-                        v-model="Brother"
-                        :rules="BrotherRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="6"  class="mt-5">
                       <v-row class=" mx-auto text-center">
                         <v-text-field label="Sister"
-                        v-model="Sister"
-                        :rules="sisterRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="6"  class="mt-5">
                       <v-row  class=" mx-auto text-center">
                         <v-text-field label="Father Name"
-                        v-model="FatherName"
-                        :rules="FatherNameRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="6"  class="mt-5">
                       <v-row class=" mx-auto text-center">
                         <v-text-field label="Occupation"
-                        v-model="FatherOccupation"
-                        :rules="FatherOccupationRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="6"  class="mt-5">
                       <v-row  class=" mx-auto text-center">
                         <v-text-field label="Mother Name"
-                        v-model="MotherName"
-                        :rules="MotherNameRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="6"  class="mt-5">
                       <v-row class=" mx-auto text-center">
                         <v-text-field label="Occupation"
-                        v-model="MotherOccupation"
-                        :rules="MotherOccupationRules"
                          variant="outlined"></v-text-field>
                       </v-row>
                     </v-col>
                     <v-col cols="12">
                         <v-text-field label="Family God"
-                        v-model="FamilyGod"
-                        :rules="FamilyGodRules"
                          variant="outlined"></v-text-field>
                     </v-col>
                     <v-col cols="12">
                         <v-text-field label="Annual income"
-                        v-model="Annualincome"
-                        :rules="AnnualincomeRules"
                          variant="outlined"></v-text-field>
                     </v-col>
                 </v-row>
@@ -211,7 +193,7 @@
                 </v-row>
                 
                     <v-card-actions>
-                        <v-btn  :loading="loading" type="submit" class="text-white rounded-3xl" block variant="outlined" color="orange" @click="addForm">Register Free</v-btn>
+                        <v-btn   type="submit" @click="add()" class="text-white rounded-3xl" block variant="outlined" color="orange">Register Free</v-btn>
                     </v-card-actions>
             </v-card-text>
         </v-card>
@@ -311,7 +293,6 @@ export default {
         selectYear:null,
         Religion:null,
         Profession:null,
-        // MotherTongue:null,
         SelectRules: [
         value => {
           if (value) return true
@@ -354,13 +335,7 @@ export default {
           return 'Religion is not selected .'
         },
       ],
-      // MotherTongueRules: [
-      //   value => {
-      //     if (value) return true
-
-      //     return 'Mother Tongue is not selected .'
-      //   },
-      // ],
+      
         firstNameRules: [
             value => {
             if (value?.length > 3) return true
@@ -486,6 +461,24 @@ export default {
         },
       ],
         }),
+        methods:{
+          add(){
+            this.loginprofile.push({
+              firstName:this.firstName,
+              selectDate:this.selectDate,
+              selectMonth:this.selectMonth,
+              selectYear:this.selectYear,
+              Religion:this.Religion,
+              Profession:this.Profession
+            })
+            console.log("added")
+          }
+        },
+        computed:{
+          LoginProfile(){
+            return this.$store.getters.loginprofile
+          }
+        }
     }
 
 </script>

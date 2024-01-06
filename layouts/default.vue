@@ -55,9 +55,10 @@
       <div  class=" md:flex md:items-center md:w-auto w-full order-2 md:order-2"  id="menu">
     <v-navigation-drawer v-model="draw" >
       <v-divider></v-divider>
+      
       <v-list-item link to="/" class="mdi mdi-playlist-edit text-3xl pr-5" title="Home"></v-list-item>
-      <v-list-item link to="/LayoutPage" class="mdi mdi-account-edit text-3xl " title="Matches"></v-list-item>
-      <v-list-item link to="/LayoutPage" class="mdi mdi-account-edit text-3xl " title="Mailbox"></v-list-item>
+      <v-list-item link to="/about" class="mdi mdi-account-edit text-3xl " title="Matches"></v-list-item>
+      <v-list-item link to="/" class="mdi mdi-account-edit text-3xl " title="Mailbox"></v-list-item>
       <v-list-item link to="/LayoutPage" class="mdi mdi-account-edit text-3xl " title="Chat"></v-list-item>
     </v-navigation-drawer>
   </div>
@@ -68,8 +69,7 @@
   <!-- </body> -->
 </template>
 <script>						
-							
-
+  
 export default {
 
   data: () => ({

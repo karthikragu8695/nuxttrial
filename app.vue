@@ -1,12 +1,15 @@
 <template>
   <v-app>
     <!-- <NuxtWelcome /> -->
-    <!-- <auth-page v-if="!loggedIn"></auth-page> -->
+    
       <NuxtLayout>
-        <NuxtPage />
+        <AuthPage/>
+        <Nuxtpage/>
       </NuxtLayout>
   </v-app>
 </template>
+
+
 
 <script>
 export default{

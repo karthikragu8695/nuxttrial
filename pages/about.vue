@@ -1,5 +1,5 @@
 <template>
     <div>
-        about
+        <AuthPage/>
     </div>
 </template>
