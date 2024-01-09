@@ -3,13 +3,13 @@
         <v-form fast-fail @submit.prevent>
         <v-card>
             <v-card-text>
-                <v-row  class="mt-2" >
-                    <v-col>
-                        <h2>Matrimony</h2>
+                <v-row  class="mt-2 " >
+                    <v-col class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+                      <v-app-bar-title> MatriMony </v-app-bar-title>
                     </v-col>
                      <v-spacer></v-spacer>
                      <v-col >
-                        <v-btn  v-if="!show" @click="show=true" size="large" class="text-orange px-3"  color="white">Login </v-btn>
+                        <v-btn  v-model=show @click="show=true" size="large" class="text-orange px-3"  color="white">Login </v-btn>
                     </v-col>
                 </v-row>
                 
@@ -200,8 +200,7 @@
         </v-form>
         <!------------------Form1 Dialoge------------------------>
         <v-dialog v-model="show">
-                       
-                        <div>
+                    <div>
                             <v-form fast-fail @submit.prevent>
                             <v-card
                             class="mx-auto pa-12 pb-8"
@@ -274,13 +273,14 @@
                         </v-card>
                         </v-form>
                     </div>
-                   
         </v-dialog>  
     </v-container>
     
 </template>
 <script>
+// import { firebase } from '@/plugins/firebase'
 export default {
+  
   
     data: () => ({
       Form2:false,
@@ -463,22 +463,20 @@ export default {
         }),
         methods:{
           add(){
-            this.loginprofile.push({
+          const profile={
               firstName:this.firstName,
               selectDate:this.selectDate,
               selectMonth:this.selectMonth,
               selectYear:this.selectYear,
               Religion:this.Religion,
               Profession:this.Profession
-            })
-            console.log("added")
+            } 
           }
         },
         computed:{
-          LoginProfile(){
-            return this.$store.getters.loginprofile
+          Profiles(){
+            return this.$store.getters.loadedprofile
           }
         }
     }
-
 </script>

@@ -11,6 +11,7 @@
         <v-col class="text-left ">
             <div class="my-10">
               <h2>{{ profile.name }}</h2>
+              <h2> <p>Count: {{ $store.state.count }}</p></h2>
             <div class="flex mt-2">
               <h2>{{ profile.age }}</h2>
               <h2 class="ml-2"  >{{ profile.height }}</h2>
@@ -19,7 +20,6 @@
               <v-btn class="mr-2"  @click="dialog = true">Show</v-btn>
               <v-btn >Don't Show</v-btn>
             </v-row>
-              
             </div>
           </v-col>
       </v-row>
@@ -97,11 +97,7 @@
 
 </template>
 
-<script setup>
-definePageMeta({
-  layout: 'default'
-})
-</script>
+
 <script>
   export default {
     data () {

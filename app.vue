@@ -1,11 +1,7 @@
 <template>
   <v-app>
-    <!-- <NuxtWelcome /> -->
-    
-      <NuxtLayout>
-        <AuthPage/>
-        <Nuxtpage/>
-      </NuxtLayout>
+     <AuthPage v-if="!loggedIn"></AuthPage>
+     <NuxtLayout v-else></NuxtLayout>
   </v-app>
 </template>
 
