@@ -1,5 +1,5 @@
 <template>
     <div>
-        <AuthPage/>
+        <ProfilePage/>
     </div>
 </template>

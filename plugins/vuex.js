@@ -3,17 +3,24 @@ import { createStore } from "vuex";
 const store = createStore({
   state() {
     return {
-      Loginprofile:[]
+      Loginprofile:[],
+      profiles: [
+        { id: 1, name: 'mukesh', age: "20Yrs",height:"5'2",profession: 'Doctor', rasi: 'Thulam',},
+        { id: 2, name: 'mathan', age: "21Yrs",height:"5'2",profession: 'Developer',rasi: 'meth',},
+      ]
     };
   },
   getters:{
     loadedprofile(){
       return state.loadedprofile
+    },
+    profiles(){
+      return state.profiles
     }
   },
   mutations: {
-    SET_PROFILE (state,payload){
-      state.Loginprofile=payload
+    SET_PROFILES (state,payload){
+      state.profiles=payload
     }
   },
   actions:{

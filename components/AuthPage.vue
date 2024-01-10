@@ -3,23 +3,23 @@
         <v-form fast-fail @submit.prevent>
         <v-card>
             <v-card-text>
-                <v-row  class="mt-2 " >
-                    <v-col class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
-                      <v-app-bar-title> MatriMony </v-app-bar-title>
-                    </v-col>
-                     <v-spacer></v-spacer>
-                     <v-col >
-                        <v-btn  v-model=show @click="show=true" size="large" class="text-orange px-3"  color="white">Login </v-btn>
-                    </v-col>
-                </v-row>
-                
-                <v-row class="mt-10">
+              <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-0">
+              <!-- <v-app-bar>
+                <label for="menu-toggle"  class="cursor-pointer md:hidden block">
+                </label>
+                  <v-app-bar-title> MatriMony </v-app-bar-title>
+                <div class="text-4xl">
+                  <v-btn  v-model=show @click="show=true" size="large" class="text-orange px-3"  color="white">Login </v-btn>
+                </div>
+                </v-app-bar> -->
+                </div>
+                <v-row class="mt-5">
                     <v-col cols="12">
                         <v-text-field
                          label="Name"
-                        v-model="firstName"
-                        :rules="firstNameRules"
-                        variant="outlined"></v-text-field>
+                         v-model="firstName"
+                         :rules="firstNameRules"
+                         variant="outlined"></v-text-field>
                     </v-col>
                     <v-col cols="12">
                         <v-radio-group inline   >
@@ -70,7 +70,6 @@
                         variant="outlined">
                     </v-select>
                 </v-col>
-                    
                     <v-col cols="12" >
                         <v-autocomplete
                             label="Religion"
@@ -191,7 +190,6 @@
 
                     </v-col>
                 </v-row>
-                
                     <v-card-actions>
                         <v-btn   type="submit" @click="add()" class="text-white rounded-3xl" block variant="outlined" color="orange">Register Free</v-btn>
                     </v-card-actions>
@@ -477,6 +475,6 @@ export default {
           Profiles(){
             return this.$store.getters.loadedprofile
           }
-        }
+        },
     }
 </script>

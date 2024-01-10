@@ -94,7 +94,9 @@
     </v-dialog>
   </v-row>
   </v-card>
-
+ <!-- <div>
+  <h2>main page</h2>
+ </div> -->
 </template>
 
 
@@ -104,25 +106,17 @@
       return {
         dialog: false,
         profiles: [
-          {
-            id: 1,
-            name: 'mukesh',
-            age: "20Yrs",
-            height:"5'2",
-            profession: 'Doctor',
-            rasi: 'Thulam',
-          },
-          {
-            id: 2,
-            name: 'mathan',
-            age: "21Yrs",
-            height:"5'2",
-            profession: 'Developer',
-            rasi: 'meth',
-          },
-        ]
+        { id: 1, name: 'mukesh', age: "20Yrs",height:"5'2",profession: 'Doctor', rasi: 'Thulam',},
+        { id: 2, name: 'mathan', age: "21Yrs",height:"5'2",profession: 'Developer',rasi: 'meth',},
+      ]
       }
+      
     },
+    computed:{
+      // add(){
+      //   return this.$store.getters.
+      // }
   }
+}
 
 </script>
