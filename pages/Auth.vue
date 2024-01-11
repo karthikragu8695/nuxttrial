@@ -8,6 +8,6 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'custom',
-  middleware:["login"]
+  // middleware:"login",
 })
 </script>

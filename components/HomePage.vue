@@ -1,139 +1,117 @@
 <template>
-  <v-container>
+  <v-card  class=" px-3 py-5 ">
+    <div v-for="profile in profiles" :key="profile.id" class="flex  ">
+      <v-row>
+        <v-col class="text-center">
+          <v-avatar  color="grey" size="150" rounded="0">
+              <v-img cover src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
+          </v-avatar>
+        </v-col>
+        <v-col class="text-left ">
+            <div class="my-10">
+              <h2>{{ profile.name }}</h2>
+              <h2> <p>Count: {{ $store.state.count }}</p></h2>
+            <div class="flex mt-2">
+              <h2>{{ profile.age }}</h2>
+              <h2 class="ml-2"  >{{ profile.height }}</h2>
+            </div>
+            <v-row class="mt-2">
+              <v-btn class="mr-2"  @click="dialog = true">Show</v-btn>
+              <v-btn >Don't Show</v-btn>
+            </v-row>
+            </div>
+          </v-col>
+      </v-row>
     
-  </v-container>
-    <!-- <v-container>
-      <v-card >
-    <v-tabs
-      v-model="tab"
-      bg-color="primary"
-      align-tabs="center"
-    >
-      <v-tab value="one">Mathces</v-tab>
-      <v-spacer></v-spacer>
-      <v-tab value="two">New Matches</v-tab>
-      <v-spacer></v-spacer>
-      <v-tab value="three">Shortlist</v-tab>
-    </v-tabs>
-
-    <v-card-text>
-      <v-window v-model="tab">
-        <v-window-item value="one">
-          One
-        </v-window-item>
-
-        <v-window-item value="two">
-          <div>
-          <v-row>
-            <v-col>
-             <v-img
-                :src="`https://picsum.photos/500/300?image`" width="200px" ></v-img>
-            </v-col>
-            <v-col  class="lg:w-40">
-              <p>
-                4/432,
-                ganthipuram temple,
-                trichy-620102,
-                Lorem ipsum dolor sit amet.
-              </p>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="md:text-right lg:text-left">
-                <span class="mdi mdi-star-check-outline text-h5  bg-green rounded-2xl px-2 py-1  border border-green-400"></span>
-                <span class="mdi mdi-message-processing-outline  bg-gray  rounded-2xl px-2 py-1 ml-3 border border-black text-h5 md-18"></span>
-              </div>
-            </v-col>
-            <v-col>
-              <div class="flex  border border-black bg-green rounded-3xl px-5 py-2">
-                <span class="mdi mdi-heart-plus text-xl "></span>
-                <h2 class="font-bold uppercase text-1xl mt-1  ml-3 ">Interest Record</h2>
-              </div>
-              
-            </v-col>
-           
-          </v-row>
-              <br>
-              <hr>
-        </div>
+    
+  </div>
+  <v-row justify="center">
+    <v-dialog v-model="dialog" fullscreen :scrim="false" transition="slide-x-reverse-transition">
+      <v-card>
+        <v-toolbar
+          dark
+          color="primary">
+          <span class="mdi mdi-chevron-left text-h4 rounded-2xl ml-2" @click="dialog = false" ></span>
+          <v-toolbar-title>All Matches</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              variant="text"
+              @click="dialog = false">
+              Save
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+        <v-list
+          lines="two"
+          subheader>
+          <v-col class="text-center">
+            <v-avatar  color="grey" size="150" rounded="0">
+                <v-img cover src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg" ></v-img>
+            </v-avatar>
+          </v-col>
+        </v-list>
+        <v-list
+          lines="two"
+          subheader class=" mx-auto">
+          <v-list  v-model="name" class="font-bold text-center  text-h4" >L.mathan</v-list>
+          <div class="flex mt-10">
+            <div>
+              <span class="mdi mdi-account-circle text-h5"></span>
+            </div>
+            <div>
+              <h2 class="ml-5 mt-1">21 Yrs, 4'6 "</h2>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <span class="mdi mdi-account-box-minus-outline text-h5"></span>
+            </div>
+            <div>
+              <h2 class="ml-5 mt-1">No caste</h2>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <span class="mdi mdi-toolbox-outline text-h5"></span>
+            </div>
+            <div>
+              <h2 class="ml-5 mt-1">Diploma, Banking Professional</h2>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <span class="mdi mdi-map-marker-outline text-h5"></span>
+            </div>
+            <div>
+              <h2 class="ml-5 mt-1">Coimbathore</h2>
+            </div>
+          </div>
         
-        <div class="mt-3">
-          <v-row>
-            <v-col>
-             <v-img
-                :src="`https://picsum.photos/500/300?image`" width="200px" ></v-img>
-            </v-col>
-            <v-col cols="5">
-              <p>
-                4/432,
-                ganthipuram temple,
-                trichy-620102,
-                Lorem ipsum dolor sit amet.
-              </p>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="md:text-right lg:text-left">
-                <span class="mdi mdi-star-check-outline text-h5  bg-green rounded-2xl px-2 py-1  border border-green-400"></span>
-                <span class="mdi mdi-message-processing-outline  bg-gray  rounded-2xl px-2 py-1 ml-3 border border-black text-h5 md-18"></span>
-              </div>
-            </v-col>
-            <v-col>
-              <div class="flex  border border-black bg-green rounded-3xl px-5 py-2">
-                <span class="mdi mdi-heart-plus text-xl "></span>
-                <h2 class="font-bold uppercase text-1xl mt-1  ml-3 ">Interest Record</h2>
-              </div>
-            </v-col>
-          </v-row>
-          <br>
-          <hr>
-        </div>
-        <div class="mt-3">
-          <v-row>
-            <v-col>
-             <v-img
-                :src="`https://picsum.photos/500/300?image`" width="200px" ></v-img>
-            </v-col>
-            <v-col cols="5">
-              <p>
-                4/432,
-                ganthipuram temple,
-                trichy-620102,
-                Lorem ipsum dolor sit amet.
-              </p>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="md:text-right lg:text-left">
-                <span class="mdi mdi-star-check-outline text-h5  bg-green rounded-2xl px-2 py-1  border border-green-400"></span>
-                <span class="mdi mdi-message-processing-outline  bg-gray  rounded-2xl px-2 py-1 ml-3 border border-black text-h5 md-18"></span>
-              </div>
-            </v-col>
-            <v-col>
-              <div class="flex  border border-black bg-green rounded-3xl px-5 py-2">
-                <span class="mdi mdi-heart-plus text-xl "></span>
-                <h2 class="font-bold uppercase text-1xl mt-1  ml-3 ">Interest Record</h2>
-              </div>
-            </v-col>
-          </v-row>
-        </div>
-        </v-window-item>
-
-        <v-window-item value="three">
-          Three
-        </v-window-item>
-      </v-window>
-    </v-card-text>
-  </v-card> -->
-    <!-- </v-container> -->
+        </v-list>
+      </v-card>
+    </v-dialog>
+  </v-row>
+  </v-card>
 </template>
+
 <script>
   export default {
-    data: () => ({
-      tab: null,
-    }),
+    data () {
+      return {
+        dialog: false,
+        profiles: [
+        { id: 1, name: 'mukesh', age: "20Yrs",height:"5'2",profession: 'Doctor', rasi: 'Thulam',},
+        { id: 2, name: 'mathan', age: "21Yrs",height:"5'2",profession: 'Developer',rasi: 'meth',},
+      ]
+      }
+      
+    },
+    computed:{
+      // add(){
+      //   return this.$store.getters.
+      // }
   }
+}
+
 </script>

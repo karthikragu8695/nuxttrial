@@ -1,5 +1,6 @@
+
 <template>
-    <div>
+    <main>
         <ProfilePage/>
-    </div>
+    </main>
 </template>
